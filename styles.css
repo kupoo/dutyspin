@@ -122,6 +122,7 @@ h1 {
 #selector {
 	position: absolute;
 	visibility: hidden;
+	transform: translateY(-2px);
 	transition: top 0.05s ease-in;
 }
 

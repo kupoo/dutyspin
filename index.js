@@ -23,6 +23,8 @@ let timeout = null;
 
 const togglesObj = {};
 
+const cursorMoveSound = './audio/cursor-sound.mp3';
+
 init();
 
 function init() {
@@ -68,7 +70,7 @@ function toggleSelector(isVisible) {
 function moveSelector(pos) {
 	let offset = 10;
 	selector.style.left = `${pos.left - (selector.getBoundingClientRect().width + offset)}px`;
-	selector.style.top = `${pos.top + selector.getBoundingClientRect().width / 2}px`;
+	selector.style.top = `${pos.top}px`;
 }
 
 function highlightRoulette(roulette) {
@@ -109,6 +111,17 @@ function rollRandomSelection() {
 		stopAtLoop * visibleRoulettes.length - visibleRoulettes.length,
 		visibleRoulettes.length * stopAtLoop,
 	);
+
+	if (positions.length <= 1) {
+		moveSelector(positions[index === positions.length ? 0 : index]);
+		let sound = new Audio(cursorMoveSound);
+		sound.play();
+		highlightRoulette(visibleRoulettes[index === positions.length ? 0 : index]);
+		enableRollButton();
+
+		return;
+	}
+
 	timeout = setTimeout(function tick() {
 		if (iteration % positions.length === 0) {
 			index = 0;
@@ -118,6 +131,8 @@ function rollRandomSelection() {
 		iteration++;
 		index++;
 		moveSelector(positions[index === positions.length ? 0 : index]);
+		let sound = new Audio(cursorMoveSound);
+		sound.play();
 
 		if (iteration >= stopSelectionCounter - visibleRoulettes.length) {
 			timeout = setTimeout(tick, (delay *= 1.25));
@@ -127,6 +142,7 @@ function rollRandomSelection() {
 					visibleRoulettes[index === positions.length ? 0 : index],
 				);
 				enableRollButton();
+
 				return;
 			}
 		} else {
