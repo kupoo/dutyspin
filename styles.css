@@ -64,6 +64,10 @@ h1 {
 	width: 700px;
 }
 
+.highlight {
+	box-shadow: 0px 0 25px white;
+}
+
 .roulette-banner {
 	width: 100%;
 	height: 60px;
@@ -82,34 +86,34 @@ h1 {
 	}
 
 	#expert-banner-img {
-		background-image: url('./images/banners/expert.png');
+		background-image: url('./assets/banners/expert.png');
 	}
 	#level-cap-banner-img {
-		background-image: url('./images/banners/level-cap.png');
+		background-image: url('./assets/banners/level-cap.png');
 	}
 	#high-level-banner-img {
-		background-image: url('./images/banners/high-level.png');
+		background-image: url('./assets/banners/high-level.png');
 	}
 	#leveling-banner-img {
-		background-image: url('./images/banners/leveling.png');
+		background-image: url('./assets/banners/leveling.png');
 	}
 	#trial-banner-img {
-		background-image: url('./images/banners/trials.png');
+		background-image: url('./assets/banners/trials.png');
 	}
 	#ms-banner-img {
-		background-image: url('./images/banners/main-scenario.png');
+		background-image: url('./assets/banners/main-scenario.png');
 	}
 	#gh-banner-img {
-		background-image: url('./images/banners/guildhests.png');
+		background-image: url('./assets/banners/guildhests.png');
 	}
 	#alliance-banner-img {
-		background-image: url('./images/banners/alliance-raids.png');
+		background-image: url('./assets/banners/alliance-raids.png');
 	}
 	#normal-raids-banner-img {
-		background-image: url('./images/banners/normal-raids.png');
+		background-image: url('./assets/banners/normal-raids.png');
 	}
 	#frontline-banner-img {
-		background-image: url('./images/banners/frontline.png');
+		background-image: url('./assets/banners/frontline.png');
 	}
 
 	p {

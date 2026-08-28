@@ -23,7 +23,9 @@ let timeout = null;
 
 const togglesObj = {};
 
-const cursorMoveSound = './audio/cursor-sound.mp3';
+const rollSound = './assets/roll.mp3';
+const selectSound = new Audio('./assets/select.mp3');
+selectSound.volume = 0.75;
 
 init();
 
@@ -74,12 +76,12 @@ function moveSelector(pos) {
 }
 
 function highlightRoulette(roulette) {
-	roulette.style.setProperty(`box-shadow`, ' 0px 0 20px rgb(209, 209, 118)');
+	roulette.classList.add('highlight');
 }
 
 function removeBoxShadow() {
 	visibleRoulettes.forEach((ele) => {
-		ele.style.setProperty('box-shadow', 'none');
+		ele.classList.remove('highlight');
 	});
 }
 
@@ -99,7 +101,7 @@ function rollRandomSelection() {
 	let positions = [];
 	let iteration = 0;
 	let index = 0;
-	const stopAtLoop = 3;
+	const stopAtLoop = 2;
 	let loops = 0;
 
 	disableRollButton();
@@ -114,10 +116,17 @@ function rollRandomSelection() {
 
 	if (positions.length <= 1) {
 		moveSelector(positions[index === positions.length ? 0 : index]);
-		let sound = new Audio(cursorMoveSound);
+		let sound = new Audio(rollSound);
+		sound.volume = 0.75;
 		sound.play();
-		highlightRoulette(visibleRoulettes[index === positions.length ? 0 : index]);
 		enableRollButton();
+
+		setTimeout(() => {
+			highlightRoulette(
+				visibleRoulettes[index === positions.length ? 0 : index],
+			);
+			selectSound.play();
+		}, 150);
 
 		return;
 	}
@@ -131,18 +140,21 @@ function rollRandomSelection() {
 		iteration++;
 		index++;
 		moveSelector(positions[index === positions.length ? 0 : index]);
-		let sound = new Audio(cursorMoveSound);
+		let sound = new Audio(rollSound);
 		sound.play();
 
 		if (iteration >= stopSelectionCounter - visibleRoulettes.length) {
 			timeout = setTimeout(tick, (delay *= 1.25));
-			if (delay > 800) {
+			if (delay > 500) {
 				clearTimeout(timeout);
-				highlightRoulette(
-					visibleRoulettes[index === positions.length ? 0 : index],
-				);
-				enableRollButton();
 
+				enableRollButton();
+				setTimeout(() => {
+					highlightRoulette(
+						visibleRoulettes[index === positions.length ? 0 : index],
+					);
+					selectSound.play();
+				}, 150);
 				return;
 			}
 		} else {
