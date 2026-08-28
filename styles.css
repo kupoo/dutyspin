@@ -45,6 +45,11 @@ h1 {
 	cursor: pointer;
 	background: linear-gradient(rgb(80, 80, 80) 48%, rgb(65, 65, 65) 52%);
 	color: rgb(231, 232, 238);
+	margin: 20px 0;
+
+	&:disabled {
+		opacity: 50%;
+	}
 }
 
 #roulette-checkbox-container {

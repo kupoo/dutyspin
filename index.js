@@ -24,6 +24,7 @@ let timeout = null;
 const togglesObj = {};
 
 init();
+
 function init() {
 	toggles.forEach((item, index) => {
 		togglesObj[`toggle${index}`] = item.checked;
@@ -45,6 +46,8 @@ function init() {
 	children.forEach((ele, index) => {
 		toggleRouletteVisibility(ele, ls[`toggle${index}`]);
 	});
+
+	enableRollButton();
 
 	rollBtn.addEventListener('click', () => {
 		if (timeout) clearTimeout(timeout);
@@ -97,6 +100,8 @@ function rollRandomSelection() {
 	const stopAtLoop = 3;
 	let loops = 0;
 
+	disableRollButton();
+
 	visibleRoulettes.forEach((item) => {
 		positions.push(item.getBoundingClientRect());
 	});
@@ -121,13 +126,23 @@ function rollRandomSelection() {
 				highlightRoulette(
 					visibleRoulettes[index === positions.length ? 0 : index],
 				);
-				console.log('done');
+				enableRollButton();
 				return;
 			}
 		} else {
 			timeout = setTimeout(tick, delay);
 		}
 	}, delay);
+}
+
+function enableRollButton() {
+	rollBtn.disabled = false;
+	rollBtn.textContent = 'Commence';
+}
+
+function disableRollButton() {
+	rollBtn.disabled = true;
+	rollBtn.textContent = 'Commencing...';
 }
 
 function getRandomNumber(min, max) {
