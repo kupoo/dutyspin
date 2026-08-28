@@ -25,7 +25,7 @@ const togglesObj = {};
 
 const rollSound = './assets/roll.mp3';
 const selectSound = new Audio('./assets/select.mp3');
-selectSound.volume = 0.75;
+selectSound.volume = 0.40;
 
 init();
 
@@ -117,7 +117,7 @@ function rollRandomSelection() {
 	if (positions.length <= 1) {
 		moveSelector(positions[index === positions.length ? 0 : index]);
 		let sound = new Audio(rollSound);
-		sound.volume = 0.75;
+		sound.volume = 0.40;
 		sound.play();
 		enableRollButton();
 
