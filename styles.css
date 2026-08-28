@@ -16,8 +16,16 @@ main {
 }
 
 h1 {
-	margin: 0;
+	margin: 2px 0 8px 0;
+	font-size: 42px;
 	color: whitesmoke;
+}
+
+h2 {
+	margin: 12px 0 8px 0;
+	font-size: 18px;
+	font-weight: normal;
+	color: thistle;
 }
 
 .container {
