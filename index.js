@@ -25,7 +25,7 @@ const togglesObj = {};
 
 const rollSound = './assets/roll.mp3';
 const selectSound = new Audio('./assets/select.mp3');
-selectSound.volume = 0.40;
+selectSound.volume = 0.10;
 
 init();
 
