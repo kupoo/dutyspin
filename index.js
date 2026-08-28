@@ -21,36 +21,45 @@ let visibleRoulettes = children.filter((ele) => ele.checkVisibility());
 const selector = document.querySelector('#selector');
 let timeout = null;
 
-visibleRoulettes.forEach((ele, index) => {
-	toggleRouletteVisibility(
-		ele,
-		JSON.parse(localStorage.getItem(`toggle${index}`)),
-	);
-});
+const togglesObj = {};
 
-rollBtn.addEventListener('click', () => {
-	if (timeout) clearTimeout(timeout);
-	visibleRoulettes = children.filter((ele) => ele.checkVisibility());
-	resetVisuals();
-	rollRandomSelection();
-});
-
-toggles.forEach((item, index) => {
-	localStorage.setItem(`toggle${index}`, `${item.checked}`);
-	item.addEventListener('change', (event) => {
-		toggleRouletteVisibility(children[index], event.target.checked);
-		resetVisuals();
-		toggleSelector(false);
-		localStorage.setItem(`toggle${index}`, `${item.checked}`);
+init();
+function init() {
+	toggles.forEach((item, index) => {
+		togglesObj[`toggle${index}`] = item.checked;
+		item.addEventListener('change', (event) => {
+			toggleRouletteVisibility(children[index], event.target.checked);
+			resetVisuals();
+			toggleSelector(false);
+			togglesObj[`toggle${index}`] = item.checked;
+			localStorage.setItem('toggles', JSON.stringify(togglesObj));
+		});
 	});
-});
+
+	if (localStorage.getItem('toggles') === null) {
+		localStorage.setItem('toggles', JSON.stringify(togglesObj));
+	}
+
+	let ls = JSON.parse(localStorage.getItem('toggles'));
+
+	children.forEach((ele, index) => {
+		toggleRouletteVisibility(ele, ls[`toggle${index}`]);
+	});
+
+	rollBtn.addEventListener('click', () => {
+		if (timeout) clearTimeout(timeout);
+		visibleRoulettes = children.filter((ele) => ele.checkVisibility());
+		resetVisuals();
+		rollRandomSelection();
+	});
+}
 
 function toggleRouletteVisibility(roulette, isOn) {
 	roulette.style.setProperty('display', isOn ? 'flex' : 'none');
 }
 
 function toggleSelector(isVisible) {
-	selector.style.setProperty('visibility', `${isVisible}`);
+	selector.style.setProperty('visibility', isVisible ? 'visible' : 'collapse');
 }
 
 function moveSelector(pos) {
