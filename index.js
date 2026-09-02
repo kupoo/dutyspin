@@ -17,6 +17,7 @@ const bannerContainer = document.querySelector('#roulette-random-picker');
 
 const children = Array.from(bannerContainer.children);
 let visibleRoulettes = children.filter((ele) => ele.checkVisibility());
+let selectedRouletteIndex = 0;
 
 const selector = document.querySelector('#selector');
 let timeout = null;
@@ -59,6 +60,13 @@ function init() {
 		resetVisuals();
 		rollRandomSelection();
 	});
+
+	window.onresize = () => {
+		let offset = 10;
+		let pos = visibleRoulettes[selectedRouletteIndex].getBoundingClientRect();
+		selector.style.left = `${pos.left - (selector.getBoundingClientRect().width + offset)}px`;
+		selector.style.top = `${pos.top}px`;
+	};
 }
 
 function toggleRouletteVisibility(roulette, isOn) {
@@ -155,6 +163,7 @@ function rollRandomSelection() {
 						visibleRoulettes[index === positions.length ? 0 : index],
 					);
 					selectSound.play();
+					selectedRouletteIndex = index;
 				}, 150);
 				return;
 			}
