@@ -25,168 +25,206 @@
 				id="selector"
 				src="./assets/cursor.png"
 			/>
-			<h1>Duty Roulette Picker</h1>
+			<h1>Duty Spin</h1>
+			<button
+				class="btn"
+				id="roll-btn"
+			>
+				Commence
+			</button>
 
 			<section
-				class="wrap-container"
-				id="roulette-checkbox-container"
+				class="roulette-content-container container jc-space-btw ai-start"
 			>
-				<label for="expert-check">
-					Expert
-					<input
-						type="checkbox"
-						id="expert-check"
-						checked
-					/>
-				</label>
-				<label for="lvl-cap-check">
-					Level Cap
-					<input
-						type="checkbox"
-						id="lvl-cap-check"
-						checked
-					/>
-				</label>
-				<label for="high-lvl-check">
-					High Level
-					<input
-						type="checkbox"
-						id="high-lvl-check"
-						checked
-					/>
-				</label>
-				<label for="lvling-check">
-					Leveling
-					<input
-						type="checkbox"
-						id="lvling-check"
-						checked
-					/>
-				</label>
-				<label for="trials-check">
-					Trials
-					<input
-						type="checkbox"
-						id="trials-check"
-						checked
-					/>
-				</label>
-				<label for="ms-check">
-					Main Scenario
-					<input
-						type="checkbox"
-						id="ms-check"
-					/>
-				</label>
-				<label for="gh-check">
-					Guildhests
-					<input
-						type="checkbox"
-						id="gh-check"
-					/>
-				</label>
-				<label for="alliance-check">
-					Alliance Raids
-					<input
-						type="checkbox"
-						id="alliance-check"
-						checked
-					/>
-				</label>
-				<label for="normal-raid-check">
-					Normal Raids
-					<input
-						type="checkbox"
-						id="normal-raid-check"
-						checked
-					/>
-				</label>
-				<label for="frontline-check">
-					Frontline
-					<input
-						type="checkbox"
-						id="frontline-check"
-					/>
-				</label>
+				<section
+					class="wrap-container jc-center ai-end"
+					id="roulette-checkbox-container"
+				>
+					<label
+						class="checkbox-label"
+						for="expert-check"
+					>
+						Expert
+						<input
+							type="checkbox"
+							id="expert-check"
+							checked
+						/>
+					</label>
+					<label
+						class="checkbox-label"
+						for="lvl-cap-check"
+					>
+						Level Cap
+						<input
+							type="checkbox"
+							id="lvl-cap-check"
+							checked
+						/>
+					</label>
+					<label
+						class="checkbox-label"
+						for="high-lvl-check"
+					>
+						High Level
+						<input
+							type="checkbox"
+							id="high-lvl-check"
+							checked
+						/>
+					</label>
+					<label
+						class="checkbox-label"
+						for="lvling-check"
+					>
+						Leveling
+						<input
+							type="checkbox"
+							id="lvling-check"
+							checked
+						/>
+					</label>
+					<label
+						class="checkbox-label"
+						for="trials-check"
+					>
+						Trials
+						<input
+							type="checkbox"
+							id="trials-check"
+							checked
+						/>
+					</label>
+					<label
+						class="checkbox-label"
+						for="ms-check"
+					>
+						Main Scenario
+						<input
+							type="checkbox"
+							id="ms-check"
+						/>
+					</label>
+					<label
+						class="checkbox-label"
+						for="gh-check"
+					>
+						Guildhests
+						<input
+							type="checkbox"
+							id="gh-check"
+						/>
+					</label>
+					<label
+						class="checkbox-label"
+						for="alliance-check"
+					>
+						Alliance Raids
+						<input
+							type="checkbox"
+							id="alliance-check"
+							checked
+						/>
+					</label>
+					<label
+						class="checkbox-label"
+						for="normal-raid-check"
+					>
+						Normal Raids
+						<input
+							type="checkbox"
+							id="normal-raid-check"
+							checked
+						/>
+					</label>
+					<label
+						class="checkbox-label"
+						for="frontline-check"
+					>
+						Frontline
+						<input
+							type="checkbox"
+							id="frontline-check"
+						/>
+					</label>
+				</section>
+				<section
+					class="container jc-center ai-center"
+					id="roulette-random-picker"
+				>
+					<div class="roulette-banner container">
+						<p>Expert</p>
+						<figure
+							class="mask"
+							id="expert-banner-img"
+						></figure>
+					</div>
+					<div class="roulette-banner container">
+						<p>Level Cap</p>
+						<figure
+							class="mask"
+							id="level-cap-banner-img"
+						></figure>
+					</div>
+					<div class="roulette-banner container">
+						<p>High Level</p>
+						<figure
+							class="mask"
+							id="high-level-banner-img"
+						></figure>
+					</div>
+					<div class="roulette-banner container">
+						<p>Leveling</p>
+						<figure
+							class="mask"
+							id="leveling-banner-img"
+						></figure>
+					</div>
+					<div class="roulette-banner container">
+						<p>Trial</p>
+						<figure
+							class="mask"
+							id="trial-banner-img"
+						></figure>
+					</div>
+					<div class="roulette-banner container">
+						<p>Main Scenario</p>
+						<figure
+							class="mask"
+							id="ms-banner-img"
+						></figure>
+					</div>
+					<div class="roulette-banner container">
+						<p>Guildhests</p>
+						<figure
+							class="mask"
+							id="gh-banner-img"
+						></figure>
+					</div>
+					<div class="roulette-banner container">
+						<p>Alliance Raids</p>
+						<figure
+							class="mask"
+							id="alliance-banner-img"
+						></figure>
+					</div>
+					<div class="roulette-banner container">
+						<p>Normal Raids</p>
+						<figure
+							class="mask"
+							id="normal-raids-banner-img"
+						></figure>
+					</div>
+					<div class="roulette-banner container">
+						<p>Frontline</p>
+						<figure
+							class="mask"
+							id="frontline-banner-img"
+						></figure>
+					</div>
+				</section>
 			</section>
-			<button id="roll-btn">Commence</button>
-
-			<section
-				class="container jc-center ai-center"
-				id="roulette-random-picker"
-			>
-				<div class="roulette-banner container">
-					<p>Expert</p>
-					<figure
-						class="mask"
-						id="expert-banner-img"
-					></figure>
-				</div>
-				<div class="roulette-banner container left">
-					<p>Level Cap</p>
-					<figure
-						class="mask"
-						id="level-cap-banner-img"
-					></figure>
-				</div>
-				<div class="roulette-banner container left">
-					<p>High Level</p>
-					<figure
-						class="mask"
-						id="high-level-banner-img"
-					></figure>
-				</div>
-				<div class="roulette-banner container left">
-					<p>Leveling</p>
-					<figure
-						class="mask"
-						id="leveling-banner-img"
-					></figure>
-				</div>
-				<div class="roulette-banner container left">
-					<p>Trial</p>
-					<figure
-						class="mask"
-						id="trial-banner-img"
-					></figure>
-				</div>
-				<div class="roulette-banner container left">
-					<p>Main Scenario</p>
-					<figure
-						class="mask"
-						id="ms-banner-img"
-					></figure>
-				</div>
-				<div class="roulette-banner container left">
-					<p>Guildhests</p>
-					<figure
-						class="mask"
-						id="gh-banner-img"
-					></figure>
-				</div>
-				<div class="roulette-banner container left">
-					<p>Alliance Raids</p>
-					<figure
-						class="mask"
-						id="alliance-banner-img"
-					></figure>
-				</div>
-				<div class="roulette-banner container left">
-					<p>Normal Raids</p>
-					<figure
-						class="mask"
-						id="normal-raids-banner-img"
-					></figure>
-				</div>
-				<div class="roulette-banner container left">
-					<p>Frontline</p>
-					<figure
-						class="mask"
-						id="frontline-banner-img"
-					></figure>
-				</div>
-			</section>
-		<h2>hi Kalyn :)</h2>
+			<h2>hi Kalyn :)</h2>
 		</main>
 		<footer>
 			<div>
