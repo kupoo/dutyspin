@@ -72,6 +72,11 @@ p {
 	background: linear-gradient(rgb(80, 80, 80) 48%, rgb(65, 65, 65) 52%);
 	color: rgb(231, 232, 238);
 	margin: 5px 0 30px 0;
+	box-shadow: none;
+	transition:
+		box-shadow 0.1s,
+		transform 0.1s,
+		opacity 0.1s;
 
 	&:disabled {
 		opacity: 50%;
@@ -126,7 +131,7 @@ input[type='checkbox'] {
 	width: 100%;
 	padding: 0 35px;
 	box-sizing: border-box;
-	gap: 100px;
+	gap: 130px;
 }
 
 #roulette-checkbox-container {
@@ -213,6 +218,15 @@ input[type='checkbox'] {
 }
 
 @media (hover: hover) {
+	.btn:not(:disabled):hover {
+		box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.308);
+		transform: translateY(-1px);
+
+		&:active {
+			transform: scale(0.95);
+		}
+	}
+
 	input[type='checkbox']:hover {
 		cursor: pointer;
 		border-color: var(--checkbox-border-hover-color);
